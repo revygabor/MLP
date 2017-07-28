@@ -30,7 +30,7 @@ class MLP:
 
         m = np.shape(inps)[0]
         for i in range(m):
-            inp = np.reshape(inps[i], (1, self.n_input))
+            inp = np.reshape(inps[i], (self.n_input, 1))
             a = self.predict(inp)
             delta_out = a - np.reshape(outs[i], (self.n_out, 1))
 
