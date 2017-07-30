@@ -9,7 +9,7 @@ xtrain = np.reshape(xtrain, (60000, 784))
 xtest = np.reshape(xtest, (10000, 784))
 ytrain = keras.utils.to_categorical(ytrain, 10)
 
-mlp = MLP(np.shape(xtrain)[1], 1024, 10)
+mlp = MLP(np.shape(xtrain)[1], 512, 512, 10)
 
 epochs = 100
 n_test = np.shape(xtest)[0]
@@ -19,10 +19,10 @@ for i in range(epochs):
     correct = 0
     for j in range(n_test):
         pred = mlp.predict(xtest[j])
-        if np.argmax(pred) == ytrain[j]:
+        if np.argmax(pred) == ytest[j]:
             correct += 1
 
-    print(correct/n_test)
+    print('test accuracy: ', correct / n_test)
 
 
 
