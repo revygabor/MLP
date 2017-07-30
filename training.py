@@ -15,7 +15,7 @@ epochs = 100
 n_test = np.shape(xtest)[0]
 
 for i in range(epochs):
-    mlp.train(0.001, xtrain, ytrain)
+    mlp.train(0.01, xtrain, ytrain)
     correct = 0
     for j in range(n_test):
         pred = mlp.predict(xtest[j])
